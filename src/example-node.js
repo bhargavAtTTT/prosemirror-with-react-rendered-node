@@ -3,6 +3,13 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 class ExampleComponent extends React.Component {
+  componentDidMount() {
+    console.log('Mounting');
+    setInterval(function(){
+      console.log('Still alive');
+    }, 1000);
+  }
+
   render() {
     return (
     <div style={{backgroundColor: 'orange', textAlign: 'center', padding: '30px'}}>
