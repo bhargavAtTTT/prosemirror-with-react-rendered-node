@@ -2,12 +2,19 @@ import {Block} from "prosemirror/dist/model"
 import React from "react"
 import ReactDOM from "react-dom"
 
+let interval;
+
 class ExampleComponent extends React.Component {
   componentDidMount() {
     console.log('Mounting');
-    setInterval(function(){
+    interval = setInterval(function(){
       console.log('Still alive');
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    console.log('Unmounting');
+    window.clearInterval(interval);
   }
 
   render() {
